@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app, origins="*")
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:JSpbLoPXKodnxPTBVLiaEgEELcbzsHtn@yamabiko.proxy.rlwy.net:54887/railway'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
