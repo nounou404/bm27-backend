@@ -21,7 +21,7 @@ class User(db.Model):
 def inscription():
     data = request.json
     user = User(
-     nom=data['name'],
+     nom=data['nom'],
 prenom=data.get('prenom', ''),
 email=data['email'],
 telephone=data['phone']
