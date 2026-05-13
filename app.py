@@ -4,8 +4,12 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
-db = SQLAlchemy(app)
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:JSpbLoPXKodnxPTBVLiaEgEELcbzsHtn@yamabiko.proxy.rlwy.net:54887/railway'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db = SQLAlchemy(app)
+
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     nom = db.Column(db.String(100))
@@ -26,9 +30,6 @@ def inscription():
     db.session.commit()
     return jsonify({'message': 'تم التسجيل بنجاح!'})
 
-with app.app_context():
-    db.create_all()
-
 @app.route('/admin')
 def admin():
     users = User.query.all()
@@ -38,5 +39,8 @@ def admin():
     html += '</table>'
     return html
 
+with app.app_context():
+    db.create_all()
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=5000)
