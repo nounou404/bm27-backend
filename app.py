@@ -21,10 +21,10 @@ class User(db.Model):
 def inscription():
     data = request.json
     user = User(
-        nom=data['nom'],
-        prenom=data['prenom'],
-        email=data['email'],
-        telephone=data['telephone']
+     nom=data['name'],
+prenom=data.get('prenom', ''),
+email=data['email'],
+telephone=data['phone']
     )
     db.session.add(user)
     db.session.commit()
