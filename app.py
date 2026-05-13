@@ -4,10 +4,8 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
-
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:JSpbLoPXKodnxPTBVLiaEgEELcbzsHtn@mysql.railway.internal:3306/railway'
-
 db = SQLAlchemy(app)
+mysql://root:JSpbLoPXKodnxPTBVLiaEgEELcbzsHtn@yamabiko.proxy.rlwy.net:54887/railway
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
