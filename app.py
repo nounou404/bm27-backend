@@ -5,7 +5,7 @@ import cloudinary
 import cloudinary.uploader
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins="*")
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:JSpbLoPXKodnxPTBVLiaEgEELcbzsHtn@yamabiko.proxy.rlwy.net:54887/railway'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
