@@ -8,8 +8,7 @@ import cloudinary.uploader
 app = Flask(__name__)
 CORS(app, origins="*")
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:JSpbLoPXKodnxPTBVLiaEgEELcbzsHtn@yamabiko.proxy.rlwy.net:54887/railway'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'mysql+pymysql://root:JSpbLoPXKodnxPTBVLiaEgEELcbzsHtn@yamabiko.proxy.rlwy.net:54887/railway')app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 cloudinary.config(
     cloud_name='dxbbtf3lh',
