@@ -29,7 +29,7 @@ class User(db.Model):
 
 @app.route('/inscription', methods=['POST'])
 def inscription():
-    nom = request.form.get('nom', '')
+    nom = request.form.get('nom') or request.form.get('name', '')
     prenom = request.form.get('prenom', '')
     email = request.form.get('email', '')
     telephone = request.form.get('telephone', '')
